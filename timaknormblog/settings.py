@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'events.apps.EventsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,10 +76,17 @@ WSGI_APPLICATION = 'timaknormblog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    # 'ENGINE': 'django.db.backends.sqlite3',
+    # 'NAME': BASE_DIR /'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'timaknormblogdb',
+        'USER': 'postgres',
+        'PASSWORD': '789456123',
+        'HOST':'localhost',
+        'PORT': '5432',
     }
 }
+    
 
 
 # Password validation
@@ -118,3 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+MEDIA_URL = '/timak_media/'
